@@ -1,4 +1,8 @@
-oogle.charts.load('current', {packages: ['corechart', 'line']});
+	<html>
+	  <head>
+	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	    <script type="text/javascript">
+		    google.charts.load('current', {packages: ['corechart', 'line']});
 	google.charts.setOnLoadCallback(drawBasic);
 
 	function drawBasic() {
@@ -66,3 +70,17 @@ oogle.charts.load('current', {packages: ['corechart', 'line']});
 
 	      chart.draw(data, options);
 	    }
+	    </script>
+	    <style type="text/css">
+	    	.graph
+	    	{
+	    		width: 100%;
+	    		height: 500px;
+
+	    	}
+	    </style>
+	  </head>
+	  <body>
+	    <div id="chart_div" class="graph"></div>
+	  </body>
+	</html>
