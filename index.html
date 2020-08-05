@@ -1,30 +1,45 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<style type="text/css">
-		@media screen and (max-width: 479px)
-		{
-			body,html{
-				height: 100vh;
-			}
-.graph-block {
-    width: 100%;
-    margin-top: 10%;
-    background-color: #fff;
-}
-#chart_div
-{
-	
-}
-	</style>
-}
-</head>
-<body>
-	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  	  <div class="graph-block">
-  	  	<div id="chart_div"></div>
-  	  </div>
-      <script type="text/javascript" src="script.js"></script>
-</body>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Dogs');
+
+      data.addRows([
+        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+        [12, 30], [13, 40]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Popularity'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+    </script>
+    <style type="text/css">
+    	.graph
+    	{
+    		width: auto;
+    		height: 1000px;
+    	}
+    </style>
+  </head>
+  <body>
+    <div id="chart_div" class="graph"></div>
+  </body>
 </html>
